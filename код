@@ -1,35 +1,38 @@
-import turtle as t
+import turtle
 
-def kvadrat(x,y,a):
-    t.pencolor('white')
-    t.fillcolor('red')
-    t.up()
-    t.goto(x,y)
-    t.down()
-    t.begin_fill()
+# квадрат
+# a – сторона квадрата
+# (x, y) – координаты левого нижнего угла фигуры
+
+def kvadrat(x,y,a,color):
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.up()
+    turtle.goto(x,y)
+    turtle.down()
+    turtle.begin_fill()
     for i in range(4):
-        t.forward(a)
-        t.right(90)
-    t.end_fill()
-    t.up()
-    t.goto(0,0)
-    t.down()
+        turtle.forward(a)
+        turtle.left(90)
+    turtle.end_fill()
 
-def pryamtreg(x,y,katet_gor,katet_vert):
-    t.pencolor('white')
-    t.fillcolor('red')
-    t.up()
-    t.goto(x, y)
-    t.down()
-    t.begin_fill()
-    t.forward(katet_gor)
-    t.left(90)
-    t.forward(katet_vert)
-    t.goto(x,y)
-    t.end_fill()
-    t.up()
-    t.goto(0, 0)
-    t.down()
+# прямоугольный треугольник
+# katet_gor  – горизонтальный катет
+# katet_vert – вертикальный катет
+# (x, y) – координаты левого нижнего угла фигуры
+
+def pryamtreg(x,y,katet_gor,katet_vert,color):
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.up()
+    turtle.goto(x, y)
+    turtle.down()
+    turtle.begin_fill()
+    turtle.forward(katet_gor)
+    turtle.left(90)
+    turtle.forward(katet_vert)
+    turtle.goto(x,y)
+    turtle.end_fill()
 
 # Равнобедренный треугольник
 # base  – длина основания
