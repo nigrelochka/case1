@@ -1,0 +1,100 @@
+import turtle
+
+# квадрат
+# a – длина стороны квадрата
+# (x, y) – координаты левого нижнего угла фигуры
+def kvadrat(x,y,a,color):
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.up()
+    turtle.goto(x,y)
+    turtle.down()
+    turtle.begin_fill()
+    for i in range(4):
+        turtle.forward(a)
+        turtle.left(90)
+    turtle.end_fill()
+
+# прямоугольный треугольник
+# katet_gor  – длина горизонтального катета
+# katet_vert – длина вертикального катета
+# (x, y) – координаты левого нижнего угла фигуры
+def pryamtreg(x,y,katet_gor,katet_vert,color):
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.up()
+    turtle.goto(x, y)
+    turtle.down()
+    turtle.begin_fill()
+    turtle.forward(katet_gor)
+    turtle.left(90)
+    turtle.forward(katet_vert)
+    turtle.goto(x,y)
+    turtle.end_fill()
+    turtle.up()
+    turtle.home()
+
+# параллелограмм
+# base   – длина основания (горизонтальная сторона)
+# height – длина боковой стороны (наклонной)
+# angle  – острый угол при основании (в градусах)
+# (x, y) – координаты левого нижнего угла фигуры
+def parallelogram(x,y,base,height,angle,color):
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.up()
+    turtle.goto(x, y)
+    turtle.down()
+    turtle.begin_fill()
+    turtle.forward(base)
+    turtle.left(180-angle)
+    turtle.forward(height)
+    turtle.left(angle)
+    turtle.forward(base)
+    turtle.left(180-angle)
+    turtle.forward(height)
+    turtle.end_fill()
+    turtle.up()
+    turtle.home()
+
+# Равнобедренный треугольник
+# base  – длина основания
+# height – высота
+# (x, y) – координаты ЛЕВОГО НИЖНЕГО УГЛА основания
+def ravnobedrennyi_treug(base, height, x, y, color):
+    left_bottom = (x, y)
+    right_bottom = (x + base, y)
+    top = (x + base / 2, y + height)
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.penup()
+    turtle.goto(left_bottom)
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.goto(right_bottom)
+    turtle.goto(top)
+    turtle.goto(left_bottom)
+    turtle.end_fill()
+
+# Трапеция (равнобедренная)
+# base_bottom – нижнее основание
+# base_top    – верхнее основание
+# height      – высота
+# (x, y)      – координаты ЛЕВОГО НИЖНЕГО УГЛА нижнего основания
+def trapeziya(base_bottom, base_top, height, x, y, color):
+    left_bottom = (x, y)
+    right_bottom = (x + base_bottom, y)
+    left_top = (x + (base_bottom - base_top) / 2, y + height)
+    right_top = (x + (base_bottom - base_top) / 2 + base_top, y + height)
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.penup()
+    turtle.goto(left_bottom)
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.goto(right_bottom)
+    turtle.goto(right_top)
+    turtle.goto(left_top)
+    turtle.goto(left_bottom)
+    turtle.end_fill()
+    
