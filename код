@@ -1,7 +1,7 @@
 import turtle
 
 # квадрат
-# a – сторона квадрата
+# a – длина стороны квадрата
 # (x, y) – координаты левого нижнего угла фигуры
 
 def kvadrat(x,y,a,color):
@@ -17,8 +17,8 @@ def kvadrat(x,y,a,color):
     turtle.end_fill()
 
 # прямоугольный треугольник
-# katet_gor  – горизонтальный катет
-# katet_vert – вертикальный катет
+# katet_gor  – длина горизонтального катета
+# katet_vert – длина вертикального катета
 # (x, y) – координаты левого нижнего угла фигуры
 
 def pryamtreg(x,y,katet_gor,katet_vert,color):
