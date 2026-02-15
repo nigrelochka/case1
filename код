@@ -26,6 +26,10 @@ def pryamtreg(x,y,katet_gor,katet_vert):
     t.left(90)
     t.forward(katet_vert)
     t.goto(x,y)
+    t.end_fill()
+    t.up()
+    t.goto(0, 0)
+    t.down()
 
 # Равнобедренный треугольник
 # base  – длина основания
@@ -63,7 +67,4 @@ def trapeziya(base_bottom, base_top, height, x, y, color):
     turtle.goto(right_top)
     turtle.goto(left_top)
     turtle.goto(left_bottom)
-    t.end_fill()
-    t.up()
-    t.goto(0, 0)
-    t.down()
+    
