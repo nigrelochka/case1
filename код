@@ -34,37 +34,41 @@ def pryamtreg(x,y,katet_gor,katet_vert):
 # Равнобедренный треугольник
 # base  – длина основания
 # height – высота
-# (x, y) – координаты середины основания
+# (x, y) – координаты ЛЕВОГО НИЖНЕГО УГЛА основания
 def ravnobedrennyi_treug(base, height, x, y, color):
-    left_bottom = (x - base / 2, y)
-    right_bottom = (x + base / 2, y)
-    top = (x, y + height)
-
+    left_bottom = (x, y)
+    right_bottom = (x + base, y)
+    top = (x + base / 2, y + height)
     turtle.pencolor(color)
+    turtle.fillcolor(color)
     turtle.penup()
     turtle.goto(left_bottom)
     turtle.pendown()
+    turtle.begin_fill()
     turtle.goto(right_bottom)
     turtle.goto(top)
     turtle.goto(left_bottom)
+    turtle.end_fill()
 
 # Трапеция (равнобедренная)
 # base_bottom – нижнее основание
 # base_top    – верхнее основание
 # height      – высота
-# (x, y)      – координаты середины нижнего основания
+# (x, y)      – координаты ЛЕВОГО НИЖНЕГО УГЛА нижнего основания
 def trapeziya(base_bottom, base_top, height, x, y, color):
-    left_bottom = (x - base_bottom / 2, y)
-    right_bottom = (x + base_bottom / 2, y)
-    left_top = (x - base_top / 2, y + height)
-    right_top = (x + base_top / 2, y + height)
-
+    left_bottom = (x, y)
+    right_bottom = (x + base_bottom, y)
+    left_top = (x + (base_bottom - base_top) / 2, y + height)
+    right_top = (x + (base_bottom - base_top) / 2 + base_top, y + height)
     turtle.pencolor(color)
+    turtle.fillcolor(color)
     turtle.penup()
     turtle.goto(left_bottom)
     turtle.pendown()
+    turtle.begin_fill()
     turtle.goto(right_bottom)
     turtle.goto(right_top)
     turtle.goto(left_top)
     turtle.goto(left_bottom)
+    turtle.end_fill()
     
