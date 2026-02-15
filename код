@@ -115,3 +115,21 @@ def pryamougolnik(x, y, b, c, color):
         turtle.forward(c)
         turtle.left(90)
     turtle.end_fill()
+
+#ромб
+#k - длина стороны ромба
+#ugol - острый угол ромба
+#(x, y) - координаты нижнего левого угла ромба
+def romb (x,y,k, ugol, color):
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.up
+    turtle.goto(x, y)
+    turtle.down
+    turtle.begin_fill()
+    for i in range(2):
+        turtle.forward(k)
+        turtle.left(180 - ugol)
+        turtle.forward(k)
+        turtle.left(ugol)
+    turtle.end_fill()
