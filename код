@@ -3,7 +3,6 @@ import turtle
 # квадрат
 # a – длина стороны квадрата
 # (x, y) – координаты левого нижнего угла фигуры
-
 def kvadrat(x,y,a,color):
     turtle.pencolor(color)
     turtle.fillcolor(color)
@@ -20,7 +19,6 @@ def kvadrat(x,y,a,color):
 # katet_gor  – длина горизонтального катета
 # katet_vert – длина вертикального катета
 # (x, y) – координаты левого нижнего угла фигуры
-
 def pryamtreg(x,y,katet_gor,katet_vert,color):
     turtle.pencolor(color)
     turtle.fillcolor(color)
@@ -33,6 +31,31 @@ def pryamtreg(x,y,katet_gor,katet_vert,color):
     turtle.forward(katet_vert)
     turtle.goto(x,y)
     turtle.end_fill()
+    turtle.up()
+    turtle.home()
+
+# параллелограмм
+# base   – длина основания (горизонтальная сторона)
+# height – длина боковой стороны (наклонной)
+# angle  – острый угол при основании (в градусах)
+# (x, y) – координаты левого нижнего угла фигуры
+def parallelogram(x,y,base,height,angle,color):
+    turtle.pencolor(color)
+    turtle.fillcolor(color)
+    turtle.up()
+    turtle.goto(x, y)
+    turtle.down()
+    turtle.begin_fill()
+    turtle.forward(base)
+    turtle.left(180-angle)
+    turtle.forward(height)
+    turtle.left(angle)
+    turtle.forward(base)
+    turtle.left(180-angle)
+    turtle.forward(height)
+    turtle.end_fill()
+    turtle.up()
+    turtle.home()
 
 # Равнобедренный треугольник
 # base  – длина основания
