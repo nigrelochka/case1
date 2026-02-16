@@ -3,23 +3,24 @@ import turtle
 # квадрат
 # a – длина стороны квадрата
 # (x, y) – координаты левого нижнего угла фигуры
-def kvadrat(x,y,a,color):
+def kvadrat(x, y, a, color):
     turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
-    turtle.goto(x,y)
+    turtle.goto(x, y)
     turtle.down()
     turtle.begin_fill()
     for i in range(4):
         turtle.forward(a)
         turtle.left(90)
     turtle.end_fill()
+    turtle.up()
 
 # прямоугольный треугольник
 # katet_gor  – длина горизонтального катета
 # katet_vert – длина вертикального катета
 # (x, y) – координаты левого нижнего угла фигуры
-def pryamtreg(x,y,katet_gor,katet_vert,color):
+def pryamtreg(x, y, katet_gor, katet_vert, color):
     turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
@@ -29,17 +30,18 @@ def pryamtreg(x,y,katet_gor,katet_vert,color):
     turtle.forward(katet_gor)
     turtle.left(90)
     turtle.forward(katet_vert)
-    turtle.goto(x,y)
+    turtle.goto(x, y)
     turtle.end_fill()
+    turtle.right(90)
     turtle.up()
-    turtle.home()
+
 
 # параллелограмм
 # base   – длина основания (горизонтальная сторона)
 # height – длина боковой стороны (наклонной)
 # angle  – острый угол при основании (в градусах)
 # (x, y) – координаты левого нижнего угла фигуры
-def parallelogram(x,y,base,height,angle,color):
+def parallelogram(x, y, base, height, angle, color):
     turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
@@ -47,15 +49,15 @@ def parallelogram(x,y,base,height,angle,color):
     turtle.down()
     turtle.begin_fill()
     turtle.forward(base)
-    turtle.left(180-angle)
+    turtle.left(180 - angle)
     turtle.forward(height)
     turtle.left(angle)
     turtle.forward(base)
-    turtle.left(180-angle)
+    turtle.left(180 - angle)
     turtle.forward(height)
     turtle.end_fill()
+    turtle.left(75)
     turtle.up()
-    turtle.home()
 
 # Равнобедренный треугольник
 # base  – длина основания
@@ -74,6 +76,7 @@ def ravnobedrennyi_treug(base, height, x, y, color):
     turtle.goto(top)
     turtle.goto(left_bottom)
     turtle.end_fill()
+    turtle.up()
 
 # Трапеция (равнобедренная)
 # base_bottom – нижнее основание
@@ -95,7 +98,8 @@ def trapeziya(base_bottom, base_top, height, x, y, color):
     turtle.goto(left_top)
     turtle.goto(left_bottom)
     turtle.end_fill()
-    
+    turtle.up()
+
 # прямоугольник
 # b – ширина прямоугольника
 # c – высота прямоугольника
@@ -113,12 +117,13 @@ def pryamougolnik(x, y, b, c, color):
         turtle.forward(c)
         turtle.left(90)
     turtle.end_fill()
+    turtle.up()
 
-#ромб
-#k - длина стороны ромба
-#ugol - острый угол ромба
-#(x, y) - координаты нижнего левого угла ромба
-def romb (x,y,k, ugol, color):
+# ромб
+# k - длина стороны ромба
+# ugol - острый угол ромба
+# (x, y) - координаты нижнего левого угла ромба
+def romb(x, y, k, ugol, color):
     turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
@@ -130,4 +135,7 @@ def romb (x,y,k, ugol, color):
         turtle.left(180 - ugol)
         turtle.forward(k)
         turtle.left(ugol)
+    turtle.end_fill()
+    turtle.up()
+
     turtle.end_fill()
