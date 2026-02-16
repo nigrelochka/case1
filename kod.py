@@ -5,7 +5,6 @@ import turtle
 # (x, y) – координаты левого нижнего угла фигуры
 # incline – наклон фигуры в градусах
 def kvadrat(x, y, a, color):
-    turtle.pencolor('black')
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
@@ -24,7 +23,6 @@ def kvadrat(x, y, a, color):
 # storona = 1 или -1 (при 1 прямой угол справа, при -1 слева)
 
 def pryamtreg(x, y, katet_gor, katet_vert,storona, color):
-    turtle.pencolor('black')
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
@@ -46,7 +44,6 @@ def pryamtreg(x, y, katet_gor, katet_vert,storona, color):
 # (x, y) – координаты левого нижнего угла фигуры
 # incline – наклон фигуры в градусах
 def parallelogram(x, y, base, height, angle, color):
-    turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
@@ -63,23 +60,45 @@ def parallelogram(x, y, base, height, angle, color):
     turtle.setheading(0)
     turtle.up()
 
-# Равнобедренный треугольник
-# base  – длина основания
-# height – высота
-# (x, y) – координаты ЛЕВОГО НИЖНЕГО УГЛА основания
-def ravnobedrennyi_treug(base, height, x, y, color):
-    left_bottom = (x, y)
-    right_bottom = (x + base, y)
-    top = (x + base / 2, y + height)
-    turtle.color(color)
+# base - длина основания
+# side - длина боковых сторон
+# x, y - координаты левого нижнего угла основания
+# color - цвет треугольника
+def ravnobedrennyi_treug(base, side, x, y, color):
+    import math
     turtle.up()
-    turtle.goto(left_bottom)
+    turtle.goto(x, y)
     turtle.down()
+    turtle.fillcolor(color)
     turtle.begin_fill()
-    turtle.goto(right_bottom)
-    turtle.goto(top)
-    turtle.goto(left_bottom)
+    if side <= base / 2:
+        return print("Ошибка: боковая сторона должна быть больше половины основания!")
+    # Вычисляем угол при основании
+    ugol = math.degrees(math.acos((base / 2) / side))
+    turtle.forward(base)
+    turtle.left(180 - ugol)
+    turtle.forward(side)
+    turtle.left(2 * ugol)
+    turtle.forward(side)
     turtle.end_fill()
+    turtle.left(180 - ugol)
+    turtle.up()
+
+# x, y - координаты начала рисования (левый нижний угол основания)
+# size - длина стороны треугольника
+def triangle(x, y, size, color):
+    turtle.up()
+    turtle.goto(x, y)
+    turtle.down()
+    turtle.fillcolor(color)
+    turtle.begin_fill()
+    turtle.forward(size)
+    turtle.left(120)
+    turtle.forward(size)
+    turtle.left(120)
+    turtle.forward(size)
+    turtle.end_fill()
+    turtle.right(-120)
     turtle.up()
 
 # Трапеция (равнобедренная)
@@ -92,7 +111,7 @@ def trapeziya(base_bottom, base_top, height, x, y, color):
     right_bottom = (x + base_bottom, y)
     left_top = (x + (base_bottom - base_top) / 2, y + height)
     right_top = (x + (base_bottom - base_top) / 2 + base_top, y + height)
-    turtle.color(color)
+    turtle.fillcolor(color)
     turtle.up()
     turtle.goto(left_bottom)
     turtle.down()
@@ -109,7 +128,6 @@ def trapeziya(base_bottom, base_top, height, x, y, color):
 # c – высота прямоугольника
 # (x, y) – координаты левого нижнего угла фигуры
 def pryamougolnik(x, y, b, c, color):
-    turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
@@ -128,7 +146,6 @@ def pryamougolnik(x, y, b, c, color):
 # ugol - острый угол ромба
 # (x, y) - координаты нижнего левого угла ромба
 def romb (x,y,k, ugol, color):
-    turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up
     turtle.goto(x, y)
