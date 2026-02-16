@@ -177,4 +177,31 @@ def cat_levi_verni_ygol():
     cat_hvost()
     
 cat_levi_verni_ygol()
+
+def home():
+    pryamougolnik(-530, -200, 30, 100, 'gray')
+    kvadrat(-550,-300,150,'orange')
+    ravnobedrennyi_treug(150,100,-550,-150,'brown')
+    pryamougolnik(-535,-300,35,70,'black')
+    kvadrat(-475,-250,50,'yellow')
+    pryamougolnik(-452, -250, 4, 50, 'black')
+    pryamougolnik(-475, -227, 50, 4, 'black')
+def tree():
+    pryamougolnik(-350, -300, 40, 130, 'brown')
+    kvadrat(-420,-250,100,'green')
+    kvadrat(-380, -180, 120, 'green')
+    kvadrat(-340, -235, 110, 'green')
+def zabor():
+    x=-600
+    for i in range(10):
+        x1=x+(35*i)
+        print(x)
+        print(i)
+        pryamougolnik(x1,-320,35,40,'orange')
+        ravnobedrennyi_treug(35,20,x1,-280,'orange')
+def dacha():
+    home()
+    tree()
+    zabor()
+dacha()
 turtle.done()
