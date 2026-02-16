@@ -134,8 +134,6 @@ def romb (x,y,k, ugol, color):
     turtle.left(ugol)
     turtle.down()
     turtle.begin_fill()
-    turtle.down
-    turtle.begin_fill()
     for i in range(2):
         turtle.forward(k)
         turtle.left(ugol)
