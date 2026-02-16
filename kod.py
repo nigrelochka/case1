@@ -4,8 +4,8 @@ import turtle
 # a – длина стороны квадрата
 # (x, y) – координаты левого нижнего угла фигуры
 # incline – наклон фигуры в градусах
-def kvadrat(x, y, a, color,incline):
-    turtle.pencolor(color)
+def kvadrat(x, y, a, color):
+    turtle.pencolor('black')
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
@@ -13,7 +13,6 @@ def kvadrat(x, y, a, color,incline):
     turtle.begin_fill()
     for i in range(4):
         turtle.forward(a)
-        print(turtle.position())
         turtle.left(90)
     turtle.end_fill()
     turtle.up()
@@ -22,14 +21,16 @@ def kvadrat(x, y, a, color,incline):
 # katet_gor  – длина горизонтального катета
 # katet_vert – длина вертикального катета
 # incline – наклон фигуры в градусах
-def pryamtreg(x, y, katet_gor, katet_vert, color):
-    turtle.pencolor(color)
+# storona = 1 или -1 (при 1 прямой угол справа, при -1 слева)
+
+def pryamtreg(x, y, katet_gor, katet_vert,storona, color):
+    turtle.pencolor('black')
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
     turtle.down()
     turtle.begin_fill()
-    turtle.forward(katet_gor)
+    turtle.forward(katet_gor*storona)
     turtle.left(90)
     turtle.forward(katet_vert)
     turtle.goto(x, y)
@@ -140,4 +141,40 @@ def romb (x,y,k, ugol, color):
         turtle.forward(k)
         turtle.left(180 - ugol)
     turtle.end_fill()
+
 turtle.setup(1400,800)
+turtle.pu()
+
+def cat_head():
+    turtle.setheading(45)
+    kvadrat(-550,200,75,'orange') #голова
+    turtle.setheading(-45)
+    pryamtreg(-496.97, 253.03, 75, 75, -1, 'brown') #правое ухо
+    turtle.setheading(45)
+    pryamtreg(-603.03, 253.03, 75, 75, 1, 'brown') #левое ухо
+    
+def cat_body():
+    turtle.setheading(-45)
+    kvadrat(-550,200,75,'orange') #шея
+    turtle.setheading(-45)
+    pryamtreg(-496.97, 253.00, 75, 75, 1, 'white') # спина
+    turtle.setheading(-45*3)
+    kvadrat(-390.90,253.00,75,'orange') #живот
+    turtle.setheading(-45 * 3)
+    pryamtreg(-496.97, 146.97, 75, 75, -1, 'brown')  # лапа правая
+    turtle.setheading(45 * 3)
+    pryamtreg(-496.97, 146.97, 75, 75, 1, 'brown')  # лапа левая
+    
+def cat_hvost():
+    turtle.setheading(-45)
+    pryamtreg(-337.87, 199.97, 75, 75, -1, 'orange') #начало хвоста
+    turtle.setheading(45)
+    pryamtreg(-390.90, 253, 75, 75, 1, 'brown') #кончик хвоста
+    
+def cat_levi_verni_ygol():
+    cat_head()
+    cat_body()
+    cat_hvost()
+    
+cat_levi_verni_ygol()
+turtle.done()
