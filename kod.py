@@ -220,3 +220,63 @@ def dacha():
     zabor()
 dacha()
 turtle.done()
+
+def body_fish(x_offset, y_offset):
+    trapeziya(150, 100, 80, -100 + x_offset, 0 + y_offset, "orange")
+
+def tail_fish(x_offset, y_offset):
+    ravnobedrennyi_treug(80, 60, -120 + x_offset, 40 + y_offset, "red")
+
+def fin_fish(x_offset, y_offset):
+    pryamtreg(-50 + x_offset, 80 + y_offset, 50, 30, "yellow")
+
+def eye_fish(x_offset, y_offset):
+    kvadrat(20 + x_offset, 30 + y_offset, 10, "black")
+
+def mouth_fish(x_offset, y_offset):
+    ravnobedrennyi_treug(15, 12, 30 + x_offset, 10 + y_offset, "pink")
+
+def origami_fish(x_offset, y_offset):
+    body_fish(x_offset, y_offset)
+    tail_fish(x_offset, y_offset)
+    fin_fish(x_offset, y_offset)
+    eye_fish(x_offset, y_offset)
+    mouth_fish(x_offset, y_offset)
+
+def ship_hullt(x_offset, y_offset):
+    trapeziya(280, 200, 50, -140 + x_offset, -50 + y_offset, "saddlebrown")
+    pryamougolnik(-130 + x_offset, -20 + y_offset, 260, 5, "gold")
+
+def mast(x_offset, y_offset):
+    pryamougolnik(-10 + x_offset, -30 + y_offset, 12, 180, "sienna")
+
+def front_sail(x_offset, y_offset):
+    ravnobedrennyi_treug(100, 100, -50 + x_offset, 30 + y_offset, "#CD5C5C")
+    turtle.pencolor("black")
+    turtle.goto(-50 + x_offset, 30 + y_offset)
+
+def upper_sail(x_offset, y_offset):
+    ravnobedrennyi_treug(50, 40, 0 + x_offset, 120 + y_offset, "#FFD700")
+
+def flag(x_offset, y_offset):
+    romb(25 + x_offset, 140 + y_offset, 20, 60, "red")
+
+def windows(x_offset, y_offset):
+    kvadrat(-80 + x_offset, -30 + y_offset, 15, "lightblue")
+    kvadrat(40 + x_offset, -30 + y_offset, 15, "lightblue")
+
+def sailboat(x_offset, y_offset):
+    ship_hullt(x_offset, y_offset)
+    mast(x_offset, y_offset)
+    front_sail(x_offset, y_offset)
+    upper_sail(x_offset, y_offset)
+    flag(x_offset, y_offset)
+    windows(x_offset, y_offset)
+
+
+turtle.setup(1400, 800) 
+turtle.speed(3)
+origami_fish(450, 150)
+sailboat(420,-200)
+turtle.hideturtle()
+turtle.done()
