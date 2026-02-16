@@ -212,8 +212,6 @@ def zabor():
     x=-600
     for i in range(10):
         x1=x+(35*i)
-        print(x)
-        print(i)
         pryamougolnik(x1,-320,35,40,'orange')
         ravnobedrennyi_treug(35,20,x1,-280,'orange')
 def dacha():
