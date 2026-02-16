@@ -5,7 +5,6 @@ import turtle
 # (x, y) – координаты левого нижнего угла фигуры
 # incline – наклон фигуры в градусах
 def kvadrat(x, y, a, color,incline):
-    turtle.left(incline)
     turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
@@ -14,6 +13,7 @@ def kvadrat(x, y, a, color,incline):
     turtle.begin_fill()
     for i in range(4):
         turtle.forward(a)
+        print(turtle.position())
         turtle.left(90)
     turtle.end_fill()
     turtle.up()
@@ -22,8 +22,7 @@ def kvadrat(x, y, a, color,incline):
 # katet_gor  – длина горизонтального катета
 # katet_vert – длина вертикального катета
 # incline – наклон фигуры в градусах
-def pryamtreg(x, y, katet_gor, katet_vert, color,incline):
-    turtle.left(incline)
+def pryamtreg(x, y, katet_gor, katet_vert, color):
     turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
@@ -45,8 +44,7 @@ def pryamtreg(x, y, katet_gor, katet_vert, color,incline):
 # angle  – острый угол при основании (в градусах)
 # (x, y) – координаты левого нижнего угла фигуры
 # incline – наклон фигуры в градусах
-def parallelogram(x, y, base, height, angle, color,incline):
-    turtle.left(incline)
+def parallelogram(x, y, base, height, angle, color):
     turtle.pencolor(color)
     turtle.fillcolor(color)
     turtle.up()
@@ -144,5 +142,4 @@ def romb(x, y, k, ugol, color):
     turtle.up()
     turtle.end_fill()
 
-pryamtreg(150,150,150,159,'red',45)
-turtle.done()
+turtle.setup(1400,800)
