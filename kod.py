@@ -156,7 +156,7 @@ def cat_hvost():
     turtle.setheading(-45)
     pryamtreg(-337.87, 199.97, -75, 75, '#E0B672')  # начало хвоста
     turtle.setheading(45)
-    pryamtreg(-390.90, 253, -75, 75, '#CC8A6E')  # кончик хвоста
+    pryamtreg(-390.90, 253, 75, 75, '#CC8A6E')  # кончик хвоста
 
 def cat_levi_verni_ygol():
     cat_head()
