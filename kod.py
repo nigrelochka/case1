@@ -1,6 +1,5 @@
 import turtle
 
-
 # квадрат
 # a – длина стороны квадрата
 # (x, y) – координаты левого нижнего угла фигуры
@@ -17,11 +16,9 @@ def kvadrat(x, y, a, color):
     turtle.end_fill()
     turtle.up()
 
-
 # прямоугольный треугольник
 # katet_gor  – длина горизонтального катета
 # katet_vert – длина вертикального катета
-
 def pryamtreg(x, y, katet_gor, katet_vert, color):
     turtle.fillcolor(color)
     turtle.up()
@@ -48,7 +45,7 @@ def ravnobedrennyi_treug(base, side, x, y, color):
     turtle.fillcolor(color)
     turtle.begin_fill()
     if side <= base / 2:
-        return print("Ошибка: боковая сторона должна быть больше половины основания!")
+        return print("Боковая сторона должна быть больше половины основания!")
     # Вычисляем угол при основании
     ugol = math.degrees(math.acos((base / 2) / side))
     turtle.forward(base)
@@ -60,7 +57,7 @@ def ravnobedrennyi_treug(base, side, x, y, color):
     turtle.setheading(0)
     turtle.up()
 
-
+#Равносторонний треугольник
 # x, y - координаты начала рисования (левый нижний угол основания)
 # size - длина стороны треугольника
 def triangle(x, y, size, color):
@@ -69,15 +66,12 @@ def triangle(x, y, size, color):
     turtle.down()
     turtle.fillcolor(color)
     turtle.begin_fill()
-    turtle.forward(size)
-    turtle.left(120)
-    turtle.forward(size)
-    turtle.left(120)
-    turtle.forward(size)
+    for i in range(3):
+        turtle.forward(size)
+        turtle.left(120)
     turtle.end_fill()
     turtle.setheading(0)
     turtle.up()
-
 
 # Трапеция (равнобедренная)
 # base_bottom – нижнее основание
@@ -101,7 +95,6 @@ def trapeziya(base_bottom, base_top, height, x, y, color):
     turtle.end_fill()
     turtle.up()
 
-
 # прямоугольник
 # shirina – ширина прямоугольника
 # height – высота прямоугольника
@@ -119,7 +112,6 @@ def pryamougolnik(x, y, shirina, height, color):
         turtle.left(90)
     turtle.end_fill()
     turtle.up()
-
 
 # ромб
 # k - длина стороны ромба
@@ -144,9 +136,9 @@ def cat_head():
     turtle.setheading(45)
     kvadrat(-550, 200, 75, '#E0B672')  # голова
     turtle.setheading(-45)
-    pryamtreg(-496.97, 253.03, -75, 75,'#CC8A6E')  # правое ухо
+    pryamtreg(-496.97, 253.03, -75, 75, '#CC8A6E')  # правое ухо
     turtle.setheading(45)
-    pryamtreg(-603.03, 253.03, 75, 75,'#FFDBBB')  # левое ухо
+    pryamtreg(-603.03, 253.03, 75, 75, '#FFDBBB')  # левое ухо
 
 def cat_body():
     turtle.setheading(-45)
@@ -156,9 +148,9 @@ def cat_body():
     turtle.setheading(-45 * 3)
     kvadrat(-390.90, 253.00, 75, '#E0B672')  # живот
     turtle.setheading(-45 * 3)
-    pryamtreg(-496.97, 146.97, -75, 75,'#CC8A6E')  # лапа правая
+    pryamtreg(-496.97, 146.97, -75, 75, '#CC8A6E')  # лапа правая
     turtle.setheading(45 * 3)
-    pryamtreg(-496.97, 146.97, 75, 75,'#CC8A6E')  # лапа левая
+    pryamtreg(-496.97, 146.97, 75, 75, '#CC8A6E')  # лапа левая
 
 def cat_hvost():
     turtle.setheading(-45)
@@ -199,13 +191,13 @@ def dacha():
     zabor()
 
 def body_fish(x_offset, y_offset):
-    trapeziya(150, 100, 80, -100 + x_offset, 0 + y_offset, "orange")
+    trapeziya(150, 100, 80, -100 + x_offset, 0 + y_offset, "#FA7305")
 
 def tail_fish(x_offset, y_offset):
-    ravnobedrennyi_treug(80, 60, -120 + x_offset, 40 + y_offset, "red")
+    ravnobedrennyi_treug(80, 60, -120 + x_offset, 40 + y_offset, "#FCA47C")
 
 def fin_fish(x_offset, y_offset):
-    pryamtreg(-50 + x_offset, 80 + y_offset, 50, 30,  "yellow")
+    pryamtreg(-50 + x_offset, 80 + y_offset, 50, 30, "#F9D779")
 
 def eye_fish(x_offset, y_offset):
     kvadrat(20 + x_offset, 30 + y_offset, 10, "black")
@@ -213,62 +205,78 @@ def eye_fish(x_offset, y_offset):
 def mouth_fish(x_offset, y_offset):
     ravnobedrennyi_treug(15, 12, 30 + x_offset, 10 + y_offset, "pink")
 
+def bubbles(x_offset, y_offset):
+    kvadrat(50 + x_offset, 35 + y_offset, 10, 'lightblue')
+    kvadrat(62 + x_offset, 49 + y_offset, 13, '#92A7D6')
+    kvadrat(58 + x_offset, 67 + y_offset, 10, 'lightblue')
+    kvadrat(49 + x_offset, 80 + y_offset, 7, '#92A7D6')
+    kvadrat(65 + x_offset, 80 + y_offset, 7, '#92A7D6')
+    kvadrat(58 + x_offset, 90 + y_offset, 5, 'lightblue')
+
 def origami_fish(x_offset, y_offset):
     body_fish(x_offset, y_offset)
     tail_fish(x_offset, y_offset)
     fin_fish(x_offset, y_offset)
     eye_fish(x_offset, y_offset)
     mouth_fish(x_offset, y_offset)
+    bubbles(x_offset, y_offset)
 
 def ship_hullt(x_offset, y_offset):
-    trapeziya(280, 200, 50, -140 + x_offset, -50 + y_offset, "saddlebrown")
-    pryamougolnik(-130 + x_offset, -20 + y_offset, 260, 5, "gold")
+    trapeziya(200, 280, 50, -100 + x_offset, -50 + y_offset, "#784F2E")
+    pryamougolnik(-130 + x_offset, -25 + y_offset, 260, 5, "gold")
 
 def mast(x_offset, y_offset):
-    pryamougolnik(-10 + x_offset, -30 + y_offset, 12, 180, "sienna")
+    pryamougolnik(-6 + x_offset, -30 + y_offset, 12, 180, "#A56D50")
 
 def front_sail(x_offset, y_offset):
     ravnobedrennyi_treug(100, 100, -50 + x_offset, 30 + y_offset, "#CD5C5C")
-    turtle.pencolor("black")
-    turtle.goto(-50 + x_offset, 30 + y_offset)
 
 def upper_sail(x_offset, y_offset):
-    ravnobedrennyi_treug(50, 40, 0 + x_offset, 120 + y_offset, "#FFD700")
+    ravnobedrennyi_treug(50, 40, 0 + x_offset, 118 + y_offset, "#F9D779")
 
 def flag(x_offset, y_offset):
     turtle.right(90)
-    romb(25 + x_offset, 140 + y_offset, 20, 60, "red")
+    romb(25 + x_offset, 140 + y_offset, 20, 60, "#FB3811")
 
 def windows(x_offset, y_offset):
-    kvadrat(-80 + x_offset, -30 + y_offset, 15, "lightblue")
+    kvadrat(-58 + x_offset, -30 + y_offset, 15, "lightblue")
     kvadrat(40 + x_offset, -30 + y_offset, 15, "lightblue")
 
 def sailboat(x_offset, y_offset):
-    ship_hullt(x_offset, y_offset)
     mast(x_offset, y_offset)
+    ship_hullt(x_offset, y_offset)
     front_sail(x_offset, y_offset)
     upper_sail(x_offset, y_offset)
     flag(x_offset, y_offset)
     windows(x_offset, y_offset)
-def heard():
-    kvadrat(-75,-75,150,'#E47C9C')
-    trapeziya(200,100,75,0,75,'#EEF1F8')
+
+def heart():
+    kvadrat(-75, -75, 150, '#E47C9C')
+    trapeziya(200, 100, 75, 0, 75, '#EEF1F8')
     trapeziya(200, 100, 75, -200, 75, '#D99BD8')
     turtle.setheading(180)
-    pryamtreg(-200,75,-125,150,'#908DCE')
+    pryamtreg(-200, 75, -125, 150, '#908DCE')
     turtle.setheading(180)
     pryamtreg(200, 75, 125, 150, '#A1C3E7')
     turtle.setheading(180)
-    ravnobedrennyi_treug(150,110,75,-75,'#F6A0AC')
+    ravnobedrennyi_treug(150, 110, 75, -75, '#F6A0AC')
 
 turtle.setup(1400, 800)
 turtle.speed(30)
-heard()
+heart()
 cat_levi_verni_ygol()
 dacha()
 origami_fish(350, 220)
 origami_fish(600, 200)
 origami_fish(480, 80)
-sailboat(380, -250)
+sailboat(400, -250)
 turtle.hideturtle()
 turtle.done()
+
+
+
+
+
+
+
+
