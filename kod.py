@@ -13,7 +13,6 @@ def kvadrat(x, y, a, color):
     turtle.begin_fill()
     for i in range(4):
         turtle.forward(a)
-        print(turtle.position())
         turtle.left(90)
     turtle.end_fill()
     turtle.up()
@@ -22,16 +21,14 @@ def kvadrat(x, y, a, color):
 # прямоугольный треугольник
 # katet_gor  – длина горизонтального катета
 # katet_vert – длина вертикального катета
-# incline – наклон фигуры в градусах
-# storona = 1 или -1 (при 1 прямой угол справа, при -1 слева)
 
-def pryamtreg(x, y, katet_gor, katet_vert, storona, color):
+def pryamtreg(x, y, katet_gor, katet_vert, color):
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
     turtle.down()
     turtle.begin_fill()
-    turtle.forward(katet_gor * storona)
+    turtle.forward(katet_gor)
     turtle.left(90)
     turtle.forward(katet_vert)
     turtle.goto(x, y)
@@ -78,7 +75,7 @@ def triangle(x, y, size, color):
     turtle.left(120)
     turtle.forward(size)
     turtle.end_fill()
-    turtle.right(-120)
+    turtle.setheading(0)
     turtle.up()
 
 
@@ -106,19 +103,19 @@ def trapeziya(base_bottom, base_top, height, x, y, color):
 
 
 # прямоугольник
-# b – ширина прямоугольника
-# c – высота прямоугольника
+# shirina – ширина прямоугольника
+# height – высота прямоугольника
 # (x, y) – координаты левого нижнего угла фигуры
-def pryamougolnik(x, y, b, c, color):
+def pryamougolnik(x, y, shirina, height, color):
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
     turtle.down()
     turtle.begin_fill()
     for i in range(2):
-        turtle.forward(b)
+        turtle.forward(shirina)
         turtle.left(90)
-        turtle.forward(c)
+        turtle.forward(height)
         turtle.left(90)
     turtle.end_fill()
     turtle.up()
@@ -126,20 +123,20 @@ def pryamougolnik(x, y, b, c, color):
 
 # ромб
 # k - длина стороны ромба
-# ugol - острый угол ромба
+# angle - острый угол ромба
 # (x, y) - координаты нижнего левого угла ромба
-def romb(x, y, k, ugol, color):
+def romb(x, y, k, angle, color):
     turtle.fillcolor(color)
     turtle.up()
     turtle.goto(x, y)
-    turtle.left(ugol)
     turtle.down()
     turtle.begin_fill()
+    turtle.left(angle)
     for i in range(2):
         turtle.forward(k)
-        turtle.left(ugol)
+        turtle.left(angle)
         turtle.forward(k)
-        turtle.left(180 - ugol)
+        turtle.left(180 - angle)
     turtle.end_fill()
     turtle.setheading(0)
 
@@ -147,27 +144,27 @@ def cat_head():
     turtle.setheading(45)
     kvadrat(-550, 200, 75, '#E0B672')  # голова
     turtle.setheading(-45)
-    pryamtreg(-496.97, 253.03, 75, 75, -1, '#CC8A6E')  # правое ухо
+    pryamtreg(-496.97, 253.03, -75, 75,'#CC8A6E')  # правое ухо
     turtle.setheading(45)
-    pryamtreg(-603.03, 253.03, 75, 75, 1, '#FFDBBB')  # левое ухо
+    pryamtreg(-603.03, 253.03, 75, 75,'#FFDBBB')  # левое ухо
 
 def cat_body():
     turtle.setheading(-45)
     kvadrat(-550, 200, 75, '#E0B672')  # шея
     turtle.setheading(-45)
-    pryamtreg(-496.97, 253.00, 75, 75, 1, '#FFDBBB')  # спина
+    pryamtreg(-496.97, 253.00, 75, 75, '#FFDBBB')  # спина
     turtle.setheading(-45 * 3)
     kvadrat(-390.90, 253.00, 75, '#E0B672')  # живот
     turtle.setheading(-45 * 3)
-    pryamtreg(-496.97, 146.97, 75, 75, -1, '#CC8A6E')  # лапа правая
+    pryamtreg(-496.97, 146.97, -75, 75,'#CC8A6E')  # лапа правая
     turtle.setheading(45 * 3)
-    pryamtreg(-496.97, 146.97, 75, 75, 1, '#CC8A6E')  # лапа левая
+    pryamtreg(-496.97, 146.97, 75, 75,'#CC8A6E')  # лапа левая
 
 def cat_hvost():
     turtle.setheading(-45)
-    pryamtreg(-337.87, 199.97, 75, 75, -1, '#E0B672')  # начало хвоста
+    pryamtreg(-337.87, 199.97, -75, 75, '#E0B672')  # начало хвоста
     turtle.setheading(45)
-    pryamtreg(-390.90, 253, 75, 75, 1, '#CC8A6E')  # кончик хвоста
+    pryamtreg(-390.90, 253, -75, 75, '#CC8A6E')  # кончик хвоста
 
 def cat_levi_verni_ygol():
     cat_head()
@@ -208,7 +205,7 @@ def tail_fish(x_offset, y_offset):
     ravnobedrennyi_treug(80, 60, -120 + x_offset, 40 + y_offset, "red")
 
 def fin_fish(x_offset, y_offset):
-    pryamtreg(-50 + x_offset, 80 + y_offset, 50, 30, 1, "yellow")
+    pryamtreg(-50 + x_offset, 80 + y_offset, 50, 30,  "yellow")
 
 def eye_fish(x_offset, y_offset):
     kvadrat(20 + x_offset, 30 + y_offset, 10, "black")
@@ -258,9 +255,9 @@ def heard():
     trapeziya(200,100,75,0,75,'#EEF1F8')
     trapeziya(200, 100, 75, -200, 75, '#D99BD8')
     turtle.setheading(180)
-    pryamtreg(-200,75,125,150,-1,'#908DCE')
+    pryamtreg(-200,75,-125,150,'#908DCE')
     turtle.setheading(180)
-    pryamtreg(200, 75, 125, 150, 1, '#A1C3E7')
+    pryamtreg(200, 75, 125, 150, '#A1C3E7')
     turtle.setheading(180)
     ravnobedrennyi_treug(150,110,75,-75,'#F6A0AC')
 
